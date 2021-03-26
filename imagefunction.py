@@ -1,4 +1,4 @@
-#V1.1 DerUSBstick#0001
+#V1.2 DerUSBstick#0001
 async def imagefunction(data, restricted_slots, page:int):
     background = await getbackground(0 if len(data) == 10 else 1)
     if len(data) == 18 and restricted_slots:
@@ -40,11 +40,11 @@ async def getfont(size):
 async def cards(image, data, option):
     i = 0
     card_pos:list = [
-        [(320, 15),(320, 15),(418, 15),(516, 15),(614, 15),(418, 142),(516, 142),(614, 142),(418, 269),(516, 269),(614, 269)],
-        [(35, 60),(138, 60),(230, 60),(35, 188),(138, 188),(230, 188),(36, 317),(134, 317),(232, 317),(338, 60),(436, 60),(536, 60),(338, 188),(436, 188),(536, 188),(338, 317),(436, 317),(536, 317)]
+        [(113, 145),(320, 15),(418, 15),(516, 15),(320, 142),(418, 142),(516, 142),(320, 269),(418, 269),(516, 269)],
+        [(15,17),(112,17),(210,17),(15,144),(112,144),(210,144),(15,274),(112,274),(210,274),(320,13),(418,13),(516,13),(320,143),(418,143),(516,143),(320,273),(418,273),(516,273)]
     ]
     for z in data:
-        if z[1] != None:
+        if z != None and z[1] != None:
             image_card = await getcard(z[1])
             image.paste(image_card, (card_pos[option][i]))
         i += 1
@@ -69,3 +69,13 @@ async def numbers(image, data, page):
         draw.text(numbers_pos[page][i], f'0{z[0]}', (165,165,165), font=font)
         i += 1
     return image
+
+
+
+----================Changes================----
+
+1. The list in the function cards() has been fixed. The cards fit now in their slots.
+
+2. The function cards() has been improved. Free Slots wont cause a error anymore
+
+
