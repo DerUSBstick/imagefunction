@@ -66,7 +66,8 @@ async def numbers(image, data, page):
     font = await getfont(35)
     draw = ImageDraw.Draw(image)
     for z in data:
-        draw.text(numbers_pos[page][i], f'0{z[0]}', (165,165,165), font=font)
+        if z[1] == None:
+            draw.text(numbers_pos[page][i], f'0{z[0]}', (165,165,165), font=font)
         i += 1
     return image
 
@@ -77,5 +78,7 @@ async def numbers(image, data, page):
 1. The list in the function cards() has been fixed. The cards fit now in their slots.
 
 2. The function cards() has been improved. Free Slots wont cause a error anymore
+
+3. Numbers will only be printed on the background if the User hasn not got the card
 
 
