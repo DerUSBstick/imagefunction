@@ -72,13 +72,3 @@ async def numbers(image, data, page):
     return image
 
 
-
-----================Changes================----
-
-1. The list in the function cards() has been fixed. The cards fit now in their slots.
-
-2. The function cards() has been improved. Free Slots wont cause a error anymore
-
-3. Numbers will only be printed on the background if the User hasn not got the card
-
-
